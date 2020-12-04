@@ -21,10 +21,28 @@ export default StyleSheet.create({
         fontSize: 30,
         textAlign: 'center',
         color: '#FFAA00',
-        width:100
+        //width: 100
+        marginBottom:20
+    },
+    ModalText: {
+        // fontFamily: ' Roboto',
+        margin:20,
+        fontStyle: 'normal',
+        fontWeight:'600',
+        fontSize: 18,
+        textAlign: 'justify',
+        color: '#FFAA00',
+        // width:100
+    },
+    Modal: {
+        alignSelf: 'center',
+        backgroundColor: '#ffffffda',
+        borderColor: '#fff',
+        borderRadius: 20,
+        padding: 20
     },
     TextInput: {
-        width:200,
+        width: 200,
         // height:100,
         borderWidth: 2,
         borderColor: "#2F2E41",
@@ -40,15 +58,15 @@ export default StyleSheet.create({
     textInput: {
         height: 40,
         paddingLeft: 6,
-        width:200,
-        fontSize:30
-      },
-      button:{
+        width: 200,
+        fontSize: 30
+    },
+    button: {
         "width": 203,
         "height": 39,
         "borderWidth": 2,
-        margin:5,
-        marginTop:10,
+        margin: 5,
+        marginTop: 10,
         "borderColor": "#FFAA00",
         "borderStyle": "solid",
         "boxSizing": "border-box",
@@ -56,19 +74,19 @@ export default StyleSheet.create({
         "borderTopRightRadius": 20,
         "borderBottomRightRadius": 20,
         "borderBottomLeftRadius": 20,
-        alignItems:'center'
-      },
-      buttonText:{
-            "width": 81,
-            "height": 39,
-            "fontFamily": "Roboto",
-            "fontStyle": "normal",
-            "fontWeight": "500",
-            "fontSize": 20,
-            "lineHeight": 23,
-            "display": "flex",
-            "alignItems": "center",
-            "textAlign": "center",
-            "color": "#FFAA00"
-      }
+        alignItems: 'center'
+    },
+    buttonText: {
+        "width": 81,
+        "height": 39,
+        "fontFamily": "Roboto",
+        "fontStyle": "normal",
+        "fontWeight": "500",
+        "fontSize": 20,
+        "lineHeight": 23,
+        "display": "flex",
+        "alignItems": "center",
+        "textAlign": "center",
+        "color": "#FFAA00"
+    }
 })
