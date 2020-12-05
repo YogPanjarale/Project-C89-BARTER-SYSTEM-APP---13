@@ -25,7 +25,7 @@ class WelcomeScreen extends Component {
         this.state = {
             input_email: 'test@abc.com',
             input_password: '123456',
-            isSignUp: true,
+            isSignUp: false,
             // sign up stuff
             input_firstName: '',
             input_lastName: '',
@@ -40,8 +40,9 @@ class WelcomeScreen extends Component {
         await firebase.auth().signInWithEmailAndPassword(email, password)
             .then((response) => {
                 //this.props.navigation.navigate('Drawer')
-
-                return alert('Logged In', response)
+                this.props.navigation.navigate('Home')
+                 //alert('Logged In', response)
+                 return response
             })
             .catch((error) => {
                 var errorcode = error.code;
@@ -65,6 +66,7 @@ class WelcomeScreen extends Component {
         firebase.auth().createUserWithEmailAndPassword(email, password)
                         .then(()=>{
                             console.log('Signed Up')
+                            this.props.navigation.navigate('Home')
                         })
                         .catch((error)=>{
                             var errorType= error.code;

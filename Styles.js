@@ -8,6 +8,13 @@ export default StyleSheet.create({
         justifyContent: 'center',
         padding: 10
     },
+    view: {
+        flex: 1,
+        backgroundColor: '#DDFFE0',
+        //alignItems: 'center',
+        //justifyContent: 'center',
+        padding: 10
+    },
     HomeImage: {
         width: 220,
         height: 156,
@@ -28,7 +35,7 @@ export default StyleSheet.create({
         // fontFamily: ' Roboto',
         margin:20,
         fontStyle: 'normal',
-        fontWeight:'600',
+        fontWeight:'200',
         fontSize: 18,
         textAlign: 'justify',
         color: '#FFAA00',
@@ -77,7 +84,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     buttonText: {
-        "width": 81,
+       // "width": 81,
         "height": 39,
         "fontFamily": "Roboto",
         "fontStyle": "normal",
