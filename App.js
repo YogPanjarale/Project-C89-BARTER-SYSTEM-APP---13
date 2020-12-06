@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import WelcomeScreen from './screens/WelcomeScreen'
-import {TabNavigator} from './components/TabNavigator'
+// import {TabNavigator} from './components/TabNavigator'
 import { createAppContainer ,createSwitchNavigator} from 'react-navigation';
-
+import {AppDrawerNavigator} from './components/DrawerNavigator' 
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,8 +20,9 @@ class App extends Component {
 export default App;
 var SwitchNavigator = createSwitchNavigator({
   // AnimationScreen:{screen:AnimationScreen},
+  Drawer:{screen:AppDrawerNavigator},
   WelcomeScreen:{screen:WelcomeScreen},
-  Home:{screen:TabNavigator},
+
  
   
 

@@ -8,7 +8,7 @@ import styles from '../Styles';
 import TextField from '@material-ui/core/TextField';
 import firebase from 'firebase/app'
 import db from '../config'
-import { Header } from 'react-native-elements';
+import { Header, Icon } from 'react-native-elements';
 
 class ExchangeScreen extends Component {
     constructor(props) {
@@ -41,8 +41,17 @@ class ExchangeScreen extends Component {
         return (
             <View style={{ flex: 1 }}>
                 <Header
-                    centerComponent={{ text: "Exchange Items", style: { color: '#fff', fontSize: 20, fontWeight: "bold", } }}
+                    centerComponent={{ text: "Items Add", style: { color: '#fff', fontSize: 20, fontWeight: "bold", } }}
                     backgroundColor='#FFAA00'
+                    leftComponent={(
+                        <Icon name="list"
+                            color={'#fff'}
+                            onPress={() => {
+                                this.props.navigation.openDrawer();
+                            }}
+                            
+                            size={30}
+                        />)}
                 // style={{alignSelf:'flex-start'}}
                 />
                 <View style={[styles.container]}>

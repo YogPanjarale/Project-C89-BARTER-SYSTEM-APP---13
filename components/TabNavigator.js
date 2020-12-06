@@ -8,20 +8,22 @@ import ExchangeScreen from '../screens/ExchangeScreen'
 // import { AppStackNavigator } from './StackNavigator'
 
 
-export const TabNavigator = createBottomTabNavigator({
-  HomeScreen : {
+export const AppTabNavigator = createBottomTabNavigator({
+  HomeScreen: {
     screen: HomeScreen,
-    navigationOptions :{
-      tabBarIcon : <Icon name={'home'}/>,
-      tabBarLabel : "Home",
+    navigationOptions: {
+      tabBarIcon: <Icon name={'home'} />,
+      tabBarLabel: "Home",
     }
   },
-  ExchangeScreen:{
-      screen:ExchangeScreen,
-      navigationOptions :{
-        tabBarIcon : <Icon name={'cached'}/>,
-        tabBarLabel : "Exchange",
-      }
-  }
+
+  ExchangeScreen: {
+    screen: ExchangeScreen,
+    navigationOptions: {
+      tabBarIcon: <Icon name={'cached'} />,
+      tabBarLabel: "Exchange",
+    }
+  },
+
 }
-  );
+);

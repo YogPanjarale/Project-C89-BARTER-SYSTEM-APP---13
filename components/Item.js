@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { 
     View,
-    Text
+    Text,
+    TouchableOpacity
  } from 'react-native';
 import { Icon } from 'react-native-elements';
 
@@ -9,24 +10,31 @@ import { Icon } from 'react-native-elements';
 class Item extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = { 
+            full:false
+         };
     }
     render() {
         return (
-            <View style={{
+            <TouchableOpacity style={{
                 backgroundColor:'#ffffffdd',
                 borderRadius:20,
                 margin:10,
                 padding:15,
-            }}>
+            }}
+            onPress={()=>{this.setState({full:!this.state.full})}}
+            >
                 <Text
                 style={{fontWeight:'bold'}}
                 >{this.props.item.item_name}
                 </Text>
+
                 <Text
-                style={{}}
+                style={{fontSize:this.state.full?null:0}}
                 >{this.props.item.description}
                 </Text>
+                
+
                 <Text
                 style={{fontWeight:400,marginTop:10}}
                 >By : <Text
@@ -43,7 +51,7 @@ class Item extends Component {
                 size={15}
                 onPress={()=>{console.log("Icon Pressed");this.props.onPress()}}
                 />
-            </View>
+            </TouchableOpacity>
         );
     }
 }
