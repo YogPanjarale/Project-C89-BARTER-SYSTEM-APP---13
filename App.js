@@ -20,8 +20,8 @@ class App extends Component {
 export default App;
 var SwitchNavigator = createSwitchNavigator({
   // AnimationScreen:{screen:AnimationScreen},
-  Drawer:{screen:AppDrawerNavigator},
   WelcomeScreen:{screen:WelcomeScreen},
+  Drawer:{screen:AppDrawerNavigator},
 
  
   

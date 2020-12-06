@@ -52,8 +52,7 @@ class HomeScreen extends Component {
                             }}
                             
                             size={30}
-                        />)}
-                   
+                        />)} 
                 />
                 <View style={styles.view}>
                     <ScrollView>
