@@ -8,12 +8,12 @@ import styles from '../Styles';
 import TextField from '@material-ui/core/TextField';
 import firebase from 'firebase/app'
 import db from '../config'
-import { Header, Icon } from 'react-native-elements';
+import { Header, Icon,ListItem } from 'react-native-elements';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import Item from '../components/Item'
 import MyHeader from '../components/MyHeader'
 
-class HomeScreen extends Component {
+class MyBarters extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,10 +24,10 @@ class HomeScreen extends Component {
         this.getItems()
     }
     getItems = async () => {
-        this.req = await db.collection('Items').onSnapshot(
-            (reqest) => {
-                var list = reqest.docs.map(document => document.data())
-                this.setState({ items: list })
+        this.req = await db.collection('AllBarters').onSnapshot(
+            (request) => {
+                var list = request.docs.map(document => document.data())
+                this.setState({ items: [...this.state.items,list] })
                 console.log(list)
             },
             (error) => {
@@ -49,8 +49,9 @@ class HomeScreen extends Component {
                             data={this.state.items}
                             keyExtractor={(item, index) => String(index)}
                             renderItem={({ item, i }) => (
-                                <Item
+                                <ListItem
                                     key={i}
+                                    title={item['']}
                                     item={item}
                                     onPress={() => { this.selectItem(item) }}
                                 />
@@ -63,4 +64,4 @@ class HomeScreen extends Component {
     }
 }
 
-export default HomeScreen;
+export default MyBarters;

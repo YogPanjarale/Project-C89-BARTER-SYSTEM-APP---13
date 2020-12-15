@@ -21,6 +21,11 @@ export default StyleSheet.create({
         resizeMode: 'contain'
 
     },
+    detailText:{
+        margin:5,
+        fontSize:16,
+    },
+
     HomeHeading: {
         // fontFamily: ' Roboto',
         fontStyle: 'normal',

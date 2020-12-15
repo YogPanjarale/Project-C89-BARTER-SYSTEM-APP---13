@@ -5,12 +5,12 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 // import BookDonateScreen from '../screens/DonateScreen';
 import HomeScreen from '../screens/HomeScreen'
 import ExchangeScreen from '../screens/ExchangeScreen'
-// import { AppStackNavigator } from './StackNavigator'
+import { AppStackNavigator } from './StackNavigator'
 
 
 export const AppTabNavigator = createBottomTabNavigator({
   HomeScreen: {
-    screen: HomeScreen,
+    screen: AppStackNavigator,
     navigationOptions: {
       tabBarIcon: <Icon name={'home'} />,
       tabBarLabel: "Home",

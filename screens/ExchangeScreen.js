@@ -8,8 +8,8 @@ import styles from '../Styles';
 import TextField from '@material-ui/core/TextField';
 import firebase from 'firebase/app'
 import db from '../config'
-import { Header, Icon } from 'react-native-elements';
-
+// import { Header, Icon } from 'react-native-elements';
+import MyHeader from '../components/MyHeader'
 class ExchangeScreen extends Component {
     constructor(props) {
         super(props);
@@ -18,42 +18,34 @@ class ExchangeScreen extends Component {
             input_description: ''
         };
     }
+    createUniqueId=()=> {
+        return Math.random().toString(36).substring(7);
+    }
     addItem = (itemName, description) => {
         var user_id = firebase.auth().currentUser.email
+        uniquiId=this.createUniqueId()
         db.collection('Items').add({
             "user_id": user_id,
             "item_name": itemName,
-            "description": description
-        }).then((resopnse)=>{
-            return alert('Item ready to exchanged','',[{
-                text:'Ok', onPress:()=>{
+            "description": description,
+            "exchangeId":uniquiId
+        }).then((resopnse) => {
+            return alert('Item ready to exchanged', '', [{
+                text: 'Ok', onPress: () => {
                     this.props.navigation.navigate('HomeScreen')
                 }
             }])
         })
         this.setState({
-            input_itemName:'',
-            input_description:''
+            input_itemName: '',
+            input_description: ''
         })
-        
+
     }
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <Header
-                    centerComponent={{ text: "Items Add", style: { color: '#fff', fontSize: 20, fontWeight: "bold", } }}
-                    backgroundColor='#FFAA00'
-                    leftComponent={(
-                        <Icon name="list"
-                            color={'#fff'}
-                            onPress={() => {
-                                this.props.navigation.openDrawer();
-                            }}
-                            
-                            size={30}
-                        />)}
-                // style={{alignSelf:'flex-start'}}
-                />
+                <MyHeader title="Exchanges Item Screen" navigation={this.props.navigation}/>
                 <View style={[styles.container]}>
                     <TextField
                         id=" Item Name"
@@ -80,7 +72,7 @@ class ExchangeScreen extends Component {
                     <TouchableOpacity style={[styles.button, {
                         alignSelf: 'stretch', width: null, paddingHorizontal: 20, margin: 30, marginTop: 30
                     }]}
-                    onPress={()=>{this.addItem(this.state.input_itemName,this.state.input_description)}}
+                        onPress={() => { this.addItem(this.state.input_itemName, this.state.input_description) }}
                     >
                         <Text style={[styles.buttonText, { fontSize: 20 }]}>
                             Add Item

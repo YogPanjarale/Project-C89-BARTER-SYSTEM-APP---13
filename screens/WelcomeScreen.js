@@ -85,6 +85,8 @@ class WelcomeScreen extends Component {
                 <Text style={styles.HomeHeading}>
                     Barter App
                   </Text>
+                {/* <this.SignUpModal/>
+                <this.LogInModal/> */}
                 {this.state.isSignUp ? <this.SignUpModal /> : <this.LogInModal/>}
                 <TouchableOpacity onPress={this.state.isSignUp?()=>{this.setState({isSignUp:false})}:()=>{this.setState({isSignUp:true})}}>
                     <Text style={styles.ModalText}>
@@ -108,7 +110,7 @@ class WelcomeScreen extends Component {
     SignUpModal = () => (
         <Modal style={styles.Modal}
         animationType="slide"
-        
+        visible={this.state.isSignUp}
         >
             <TextField
                 id=" Input first name"
@@ -202,6 +204,7 @@ class WelcomeScreen extends Component {
         <Modal 
         style={styles.Modal}
         animationType='slide'
+        visible={!this.state.isSignUp}
         >
 
             <TextField

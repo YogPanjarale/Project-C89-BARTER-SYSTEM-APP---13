@@ -22,10 +22,5 @@ var SwitchNavigator = createSwitchNavigator({
   // AnimationScreen:{screen:AnimationScreen},
   WelcomeScreen:{screen:WelcomeScreen},
   Drawer:{screen:AppDrawerNavigator},
-
- 
-  
-
-  
 })
 var AppContainer = createAppContainer(SwitchNavigator)
