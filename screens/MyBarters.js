@@ -5,12 +5,12 @@ import {
     View
 } from 'react-native';
 import styles from '../Styles';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import firebase from 'firebase/app'
 import db from '../config'
 import { Header, Icon,ListItem } from 'react-native-elements';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
-import Item from '../components/Item'
+// import Item from '../components/Item'
 import MyHeader from '../components/MyHeader'
 
 class MyBarters extends Component {
@@ -24,11 +24,11 @@ class MyBarters extends Component {
         this.getItems()
     }
     getItems = async () => {
-        this.req = await db.collection('AllBarters').onSnapshot(
+        this.req = await db.collection('notifications').where('notificationStatus','==','unread').onSnapshot(
             (request) => {
                 var list = request.docs.map(document => document.data())
-                this.setState({ items: [...this.state.items,list] })
-                console.log(list)
+                this.setState({ items: list })
+                // console.log(list)
             },
             (error) => {
                 console.log(error)
@@ -37,25 +37,35 @@ class MyBarters extends Component {
     }
     selectItem = async (item) => {
         console.log(`Item ${item.item_name} Excahanged`)
-        this.props.navigation.navigate("UserDetailsScreen",{"details":item})
+        // this.props.navigation.navigate("ReciverDetailsScreen",{"details":item})
     }
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <MyHeader title='Home Screen' navigation={this.props.navigation}/>
+                <MyHeader title='My Barters' navigation={this.props.navigation}/>
                 <View style={styles.view}>
                     <ScrollView>
                         <FlatList
                             data={this.state.items}
                             keyExtractor={(item, index) => String(index)}
-                            renderItem={({ item, i }) => (
+                            renderItem={({ item, i }) =>{ 
+                                console.log(item,item['itemName'])
+                                return(
                                 <ListItem
                                     key={i}
-                                    title={item['']}
+                                    title={item.itemName}
+                                    subtitle={item.message}
                                     item={item}
                                     onPress={() => { this.selectItem(item) }}
                                 />
-                            )}
+                            //    , <ListItem
+                            //         key={i}
+                            //         title={'title'}
+                            //         subtitle={'message'}
+                            //         item={item}
+                            //         onPress={() => { this.selectItem(item) }}
+                            //     />
+                            )}}
                         />
                     </ScrollView>
                 </View>

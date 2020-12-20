@@ -37,7 +37,7 @@ class HomeScreen extends Component {
     }
     selectItem = async (item) => {
         console.log(`Item ${item.item_name} Excahanged`)
-        this.props.navigation.navigate("UserDetailsScreen",{"details":item})
+        this.props.navigation.navigate("ReciverDetailsScreen",{"details":item})
     }
     render() {
         return (

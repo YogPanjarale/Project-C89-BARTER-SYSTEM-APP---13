@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import ExchangeItemsScreens from '../screens/HomeScreen';
-import UserDetailsScreen from '../screens/UserDetails';
+import ReciverDetailsScreen from '../screens/ReciverDetails';
 import MyBarters from '../screens/MyBarters'
 export const AppStackNavigator = createStackNavigator({
   HomeScreen: {
@@ -11,8 +11,8 @@ export const AppStackNavigator = createStackNavigator({
       headerShown: false
     }
   },
-  UserDetailsScreen: {
-    screen: UserDetailsScreen,
+  ReciverDetailsScreen: {
+    screen: ReciverDetailsScreen,
     navigationOptions:{
       headerShown: false
     }
