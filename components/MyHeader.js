@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
-import {Header,Icon} from 'react-native-elements'
+import { View } from 'react-native';
+import {Header,Icon,Badge} from 'react-native-elements'
+import db from '../config'
 class MyHeader extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = { 
+            notificationsNo:0
+         };
+    }
+    getNumberOfUnreadNotification=async ()=>{
+        this.req = await db.collection('notifications').where('notificationStatus','==','unread').onSnapshot(
+            (request) => {
+                var list = request.docs.map(document => document.data())
+                console.log(document.length);
+                this.setState({ notificationsNo: list.length })
+                // console.log(list)
+            },
+            (error) => {
+                console.log(error)
+            }
+        )
+    }
+    componentDidMount() {
+        this.getNumberOfUnreadNotification()
     }
     render() {
         return (
@@ -19,6 +39,23 @@ class MyHeader extends Component {
                             
                             size={30}
                         />)} 
+                        rightComponent={(
+                            <View>
+                              <Icon
+                                name="notifications"
+                                color="#fff"
+                                onPress={() => {
+                                  console.log('Bell Pressed');
+                                  this.props.navigation.navigate('MyBarters')
+                                }}
+                              />
+                              <Badge
+                                value={this.state.notificationsNo}
+                                containerStyle={{ position: 'absolute', top: -4, right: -4, }}
+                                status="success"
+                              />
+                            </View>
+                          )}
                 />
         );
     }
