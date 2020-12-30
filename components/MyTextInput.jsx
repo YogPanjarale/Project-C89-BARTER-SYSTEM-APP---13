@@ -10,7 +10,6 @@ const MyComponent = () => {
   return (
       <View>
     <TextInput
-      label="Email"
       value={text}
       onChangeText={text => setText(text)}
 

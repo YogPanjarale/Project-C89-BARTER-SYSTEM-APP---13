@@ -25,22 +25,22 @@ class SideBar extends Component {
                 </View>
                 <View style={
                     {
-                         flex: 1,
-                      //  alignSelf:'flex-end',
-                         justifyContent: 'flex-end',
-                         
+                        flex: 1,
+                        //  alignSelf:'flex-end',
+                        justifyContent: 'flex-end',
+
                         paddingBottom: 30
                     }
                 }>
                     <TouchableOpacity style={{
-                        backgroundColor: '#FF2A4F',
+                        backgroundColor: '#FF1A1F',
                         paddingHorizontal: 10,
                         margin: 10,
                         paddingVertical: 10,
                         borderRadius: 5,
-                        flex:1,
-                        flexDirection:'row',
-                        maxHeight:50,
+                        flex: 1,
+                        flexDirection: 'row',
+                        maxHeight: 50,
                     }}
                         onPress={() => {
                             this.props.navigation.navigate('WelcomeScreen')
@@ -50,11 +50,11 @@ class SideBar extends Component {
                             {
                                 fontSize: 18,
                                 fontWeight: 'bold',
-                                color:'#fff',
-                                marginRight:20,
+                                color: '#fff',
+                                marginRight: 20,
                             }
                         }>Log Out</Text>
-                        <Icon size={30} name ='input' color="#fff" style={{alignSelf:'flex-end'}}/>
+                        <Icon size={30} name='input' color="#fff" style={{ alignSelf: 'flex-end' }} />
                     </TouchableOpacity>
                 </View>
 
