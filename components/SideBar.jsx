@@ -67,7 +67,7 @@ class SideBar extends Component {
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           this.setState({
-            name: doc.data().first_name + " " + doc.data().last_name,
+            name: doc.data().firstName + " " + doc.data().lastName,
             docId: doc.id,
             image: doc.data().image,
           });
@@ -93,11 +93,12 @@ class SideBar extends Component {
             size="large"
             // title="LW"
             onPress={() => {
-              console.log("Works!");
+            //   console.log("Works!");
               this.selectPicture();
             }}
             activeOpacity={0.7}
           />
+          <Text style={{ fontWeight: "bold" }}>{this.state.name}</Text>
         </View>
         <Text>Custom Side Drawer</Text>
         <View style={styles.drawerItemsContainer}>
