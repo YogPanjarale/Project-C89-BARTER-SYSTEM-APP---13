@@ -16,6 +16,7 @@ class ExchangeScreen extends Component {
   }
   componentDidMount() {
       this.getItems();
+      this.getData();
   }
   getItems = () => {
     db.collection("Items")
@@ -55,6 +56,17 @@ class ExchangeScreen extends Component {
       .where("user_id", "==", firebase.auth().currentUser.email)
       .onSnapshot(() => {});
   };
+  getData(){
+    fetch("http://data.fixer.io/api/latest?access_key=1f7dd48123a05ae588283b5e13fae944&format=1")
+    .then(response=>{
+      return response.json();
+    }).then(responseData =>{
+      var currencyCode = this.state.currencyCode
+      var currency = responseData.rates.INR
+      var value =  69 / currency
+      console.log(value);
+    })
+    }
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -81,6 +93,17 @@ class ExchangeScreen extends Component {
             }}
             multiline
             style={{ width: "80%" }}
+          />
+                <Input
+            style={styles.formTextInput}
+            placeholder ={"Item Value"}
+            maxLength ={8}
+            onChangeText={(text)=>{
+              this.setState({
+                itemValue: text
+              })
+            }}
+            value={this.state.itemValue}
           />
           <TouchableOpacity
             style={[

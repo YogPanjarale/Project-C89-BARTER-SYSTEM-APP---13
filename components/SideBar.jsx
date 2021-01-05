@@ -66,6 +66,7 @@ class SideBar extends Component {
       .where("email_id", "==", this.state.userId)
       .onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
+            console.log(doc.data());
           this.setState({
             name: doc.data().firstName + " " + doc.data().lastName,
             docId: doc.id,
