@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 export default StyleSheet.create({
     container: {
