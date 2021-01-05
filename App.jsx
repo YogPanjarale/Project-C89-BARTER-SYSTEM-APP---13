@@ -5,6 +5,8 @@ import WelcomeScreen from './screens/WelcomeScreen'
 // import {TabNavigator} from './components/TabNavigator'
 import { createAppContainer ,createSwitchNavigator} from 'react-navigation';
 import {AppDrawerNavigator} from './components/DrawerNavigator' 
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,9 @@ class App extends Component {
   }
   render() {
     return (
+      <SafeAreaProvider>
       <AppContainer/>
+      </SafeAreaProvider>
     );
   }
 }
